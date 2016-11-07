@@ -1,0 +1,26 @@
+{
+  "name": "jhony-five",
+  "version": "1.0.0",
+  "description": "ioT",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tamer1an/jhony-five.git"
+  },
+  "keywords": [
+    "IoT"
+  ],
+  "author": "Andrii Trybynenko",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tamer1an/jhony-five/issues"
+  },
+  "dependencies": {
+    "johnny-five": "*"
+  },
+  "devDependencies": {},
+  "homepage": "https://github.com/tamer1an/jhony-five#readme"
+}
