@@ -24,8 +24,8 @@ board.on("ready", function() {
   bindLCDButton(btnRIGHT);
 
   this.wait(3000, function () {
-    lcd.clear().cursor(0, 0).print("Move cursor");
-    lcd.print("I").write(7).print(":heart: :heart: :heart: you");
+    lcd.clear().cursor(0, 0).print("Hello master");
+    lcd.print("!").cursor(1, 0).write(7).print("I :heart: :heart: :heart: you");
   });
 
   this.repl.inject({

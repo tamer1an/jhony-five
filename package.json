@@ -19,7 +19,8 @@
     "url": "https://github.com/tamer1an/jhony-five/issues"
   },
   "dependencies": {
-    "johnny-five": "*"
+    "etherport": "^0.1.4",
+    "johnny-five": "^0.10.5"
   },
   "devDependencies": {},
   "homepage": "https://github.com/tamer1an/jhony-five#readme"
