@@ -1,7 +1,10 @@
 var five = require("johnny-five"),
-  board = new five.Board();  // { port: "COM5" };
+  EtherPort = require("etherport"),
+  board = new five.Board({
+    port: new EtherPort(3030) // { port: "COM5" };
+  });
 
-board.on("ready", function() {
+board.on("ready", function () {
   var btnRIGHT = new five.Button("A0"), // 0,
     // btnUP    = new five.Button("A1"), // 1,
     // btnDOWN  = new five.Button("A2"), // 2,
@@ -63,15 +66,15 @@ function bindLCDButton(btn) {
 }
 
 /*
-  Pin	Function
-  Analog 0	Button (select, up, right, down and left)
-  Digital 4	DB4
-  Digital 5	DB5
-  Digital 6	DB6
-  Digital 7	DB7
-  Digital 8	RS (Data or Signal Display Selection)
-  Digital 9	Enable
-  Digital 10	Backlit Control
+ Pin	Function
+ Analog 0	Button (select, up, right, down and left)
+ Digital 4	DB4
+ Digital 5	DB5
+ Digital 6	DB6
+ Digital 7	DB7
+ Digital 8	RS (Data or Signal Display Selection)
+ Digital 9	Enable
+ Digital 10	Backlit Control
 
  #define btnRIGHT  0
  #define btnUP     1
@@ -79,5 +82,5 @@ function bindLCDButton(btn) {
  #define btnLEFT   3
  #define btnSELECT 4
  #define btnNONE   5
-*/
+ */
 
