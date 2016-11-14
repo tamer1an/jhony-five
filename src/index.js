@@ -4,6 +4,24 @@ var five = require("johnny-five"),
 board.on("ready", function() {
   var btn = new five.Button(2);
   var piezo = new five.Piezo(8);
+	
+  var temperature =new five.Thermometer({
+	  pin: 4, //"A5",
+	  //toCelsius: function(raw) { // optional
+		//return (raw / sensivity) + offset;
+	  //}
+  });
+
+  temperature.on("data", function() {
+    console.log("celsius: %d", this.C);
+    console.log("fahrenheit: %d", this.F);
+    console.log("kelvin: %d", this.K);
+  });
+
+  /*new five.Thermometer({
+	  controller: "LM35",
+	  pin: "A0"
+  });*/
 
   btn.on("press", function () {
     console.log('pressed');
@@ -19,10 +37,15 @@ board.on("ready", function() {
   });
 
   // Create an Led on pin 13
-  var led = new five.Led(5);
+   var led = new five.Led(5);
 
   // Strobe the pin on/off, defaults to 100ms phases
-  led.strobe();
+   //led.strobe();
+
+	
+ // this.wait(3000, function () {
+	led.off();
+ // });
 
   this.repl.inject({
     btn: btn
