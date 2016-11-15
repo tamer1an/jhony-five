@@ -4,24 +4,56 @@ var five = require("johnny-five"),
 board.on("ready", function() {
   var btn = new five.Button(2);
   var piezo = new five.Piezo(8);
-	
-  var temperature =new five.Thermometer({
-	  pin: 4, //"A5",
-	  //toCelsius: function(raw) { // optional
-		//return (raw / sensivity) + offset;
-	  //}
+  var led = new five.Led(5);
+  var servo = new five.Servo({
+    pin: 10,
+    range: [45, 135],
+    startAt: 120
   });
 
-  temperature.on("data", function() {
-    console.log("celsius: %d", this.C);
-    console.log("fahrenheit: %d", this.F);
-    console.log("kelvin: %d", this.K);
-  });
+  servo.sweep();
 
-  /*new five.Thermometer({
+//   var servo = new five.Servo.Continuous(10);
+// // Set the horn to 90degrees
+//   servo.to(90);
+//
+// // Angle change takes 500ms to complete
+//   servo.to(90, 500);
+
+  /*
+   // var temperature =new five.Thermometer({
+   //   pin: 4, //"A5",
+   //   //toCelsius: function(raw) { // optional
+   // 	//return (raw / sensivity) + offset;
+   //   //}
+   // });
+
+   // temperature.on("data", function() {
+   //   console.log("celsius: %d", this.C);
+   //   console.log("fahrenheit: %d", this.F);
+   //   console.log("kelvin: %d", this.K);
+   // });
+
+   /!*new five.Thermometer({
 	  controller: "LM35",
 	  pin: "A0"
-  });*/
+   });*!/
+
+   */
+
+  // this.loop(1, function() {
+  //   if (sound.value > 400) {
+  //     led.on();
+  //   }
+  //   led.off();
+  // });
+
+  // Strobe the pin on/off, defaults to 100ms phases
+  //led.strobe();
+
+  // this.wait(3000, function () {
+  // led.off();
+  // });
 
   btn.on("press", function () {
     console.log('pressed');
@@ -36,19 +68,7 @@ board.on("ready", function() {
     });
   });
 
-  // Create an Led on pin 13
-   var led = new five.Led(5);
-
-  // Strobe the pin on/off, defaults to 100ms phases
-   //led.strobe();
-
-	
- // this.wait(3000, function () {
-	led.off();
- // });
-
   this.repl.inject({
     btn: btn
   });
-
 });
